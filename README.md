@@ -9,3 +9,4 @@ Course url: https://www.appbrewery.co/courses
 - API Authentication and Postman
 - JSON
 - Getting requests with Node HTTPS module
+- Parse JSON
