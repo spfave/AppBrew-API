@@ -18,12 +18,15 @@ app.get("/", function (req, res) {
             const weatherData = JSON.parse(data);
             const temp = weatherData.main.temp;
             const weatherDescription = weatherData.weather[0].description;
-            console.log(temp);
-            console.log(weatherDescription);
+            const weatherIcon = weatherData.weather[0].icon;
+            const weatherImage = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
+
+            res.write(`<p>The forecast is currently ${weatherDescription}.</p>`);
+            res.write(`<h1>The temperature in Washington is ${temp} degrees Fahrenheit</h1>`);
+            res.write(`<img src=${weatherImage} alt="weather image icon">`);
+            res.send();
         });
     });
-
-    res.send("server running");
 })
 
 app.listen(port, function () {
